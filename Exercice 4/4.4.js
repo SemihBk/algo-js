@@ -20,7 +20,7 @@ function multiRand(a, tab) {
   for (i = 0; i < a; i++) {
     tab.push(rand10(11));
   }
-  return tab
+  return tab;
 }
 
 let array = multiRand(n, array1)

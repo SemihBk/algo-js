@@ -24,11 +24,24 @@ const askTvSerie = () => {
   let name = readlineSync.question('Can you give me the name of your favourite movie, please?');
   let year = readlineSync.question('Its year of production ?');
   let cast = readlineSync.question('The cast members ?');
+  let arrayCast = [];
+  arrayCast.push(cast);
 
-  let tvSerie = {name, year, cast};
-  return console.log(`Ton film préféré est ${name}, sorti en ${year}, avec un cast d'enfer, avec ${cast}`); 
+  for (i = 1; cast !== "No"; i++){
+    cast = readlineSync.question('Another one ? Write No to stop.');
+    arrayCast[i] = cast;
+  }
+
+  arrayCast.pop();
+
+  let tvSerie = {name, year, arrayCast};
+  return {
+    name: name,
+    year: year,
+    cast: arrayCast
+  }; 
   //  */console.log(tvSerie);
 };
 
-askTvSerie();
+console.log(askTvSerie());
 

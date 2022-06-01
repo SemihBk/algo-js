@@ -3,11 +3,13 @@
 1 * 2 * 3 * 4 * 5 = 120 */
 
 function factorial(n){
-  let fact = 1;
-  for (i = 0; i <= n; i++){
-  fact = fact + 1; 
+  if (n !== 0){
+    return n * factorial(n-1);
+  } else {
+    return 1;
   }
-  return;
 }
 
 console.log(factorial(5));
+
+

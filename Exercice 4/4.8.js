@@ -29,19 +29,17 @@ function queueTime(customers, numOfTills){
 
   // Shallow Clone l'array customers dans la variable tills avec numOfTills valeurs
   let tills = customers.slice(0, numOfTills)
-  console.log(tills)
 
+  // Connaître l'index de la plus petite et la plus grande valeur de tills
   const indexMin = tills.indexOf(Math.min(...tills));
   const indexMax = tills.indexOf(Math.max(...tills));
-  console.log(indexMin);
-  console.log(indexMax);
 
   // loop pour que toutes les valeurs de l'array customers (customers.length) entre dans l'array tills (à certaines conditions)
-  // Commence à i = 2 parce qu'il y a déjà les 2 premières valeurs dans l'array tills
+  // Commence à i = numOfTills parce qu'il y a déjà numOfTills valeurs dans l'array tills
   for (i = numOfTills; i < customers.length; i++){
 
-    // Si la valeur de tills[0] est plus grande, la prochaine valeur de customers[i] s'additionnera avec la valeur de tills[1]
-    // Sinon, elle s'additionnera avec tills[0]
+    // Si la valeur de tills[indexMax] est plus grande, la prochaine valeur de customers[i] s'additionnera avec la valeur de tills[indexMin]
+    // Sinon, elle s'additionnera avec tills[indexMax]
     if (tills[indexMax] > tills[indexMin]){
       tills[indexMin] += customers[i];
     } else {
